@@ -6,25 +6,30 @@
         Sign up your account
       </div>
     </h2>
-    <form class="ui large form">
+    {{#if errors}}
+      {{#each errors}}
+        <div class="ui left pointing teal label">{{msg}} </div>
+      {{/each}}
+    {{/if}}
+    <form class="ui large form" method="post" action="/users/register">
       <div class="ui stacked segment">
         <div class="field">
           <div class="ui left icon input">
             <i class="user icon"></i>
-            <input type="text" name="name" placeholder="name">
+            <input type="text" name="name" placeholder="Name">
           </div>
         </div>
         <div class="field">
           <div class="ui left icon input">
             <i class="user icon"></i>
-            <input type="text" name="username" placeholder="user name">
+            <input type="text" name="username" placeholder="User Name">
           </div>
         </div>
 
         <div class="field">
           <div class="ui left icon input">
-            <i class="user icon"></i>
-            <input type="text" name="email" placeholder="E-mail address">
+            <i class="mail square icon"></i>
+            <input type="text" name="email" placeholder="E-mail Address">
           </div>
         </div>
 
@@ -37,10 +42,10 @@
         <div class="field">
           <div class="ui left icon input">
             <i class="lock icon"></i>
-            <input type="password" name="password" placeholder="Confirm Password">
+            <input type="password" name="password2" placeholder="Confirm Password">
           </div>
         </div>
-        <div class="ui fluid large teal submit button">Sign up</div>
+        <button class="ui fluid large teal submit button" type="submit">Sign up</button>
       </div>
 
       <div class="ui error message"></div>
